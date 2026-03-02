@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -7,9 +8,10 @@
     <meta name="description" content="Jeu de memory avec 3 niveaux de difficulté." />
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <main>
-    <!-- Menu d'accueil -->
+    <main>
+        <!-- Menu d'accueil -->
         <section id="menu" class="screen">
             <div class="bounce-in">
                 <h1>Memory</h1>
@@ -30,7 +32,18 @@
                 </button>
             </div>
         </section>
-        
-  </main>  
+
+        <!-- Jeu -->
+        <section id="game" class="screen hidden">
+            <div class="game-header">
+                <button id="back-btn" class="link-btn">← Retour</button>
+                <span id="difficulty-label" class="difficulty-label"></span>
+                <span id="moves-label" class="moves-label">0 coup</span>
+            </div>
+            <div id="grid" class="grid"></div>
+        </section>
+        <script src="script.js"></script>
+    </main>
 </body>
+
 </html>
