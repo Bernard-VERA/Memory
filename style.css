@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: hsl(40, 33%, 96%);
+    --fg: hsl(220, 20%, 18%);
+    --card-bg: hsl(0, 0%, 100%);
+    --card-back: hsl(210, 60%, 52%);
+    --card-matched: hsl(145, 60%, 45%);
+    --primary: hsl(210, 60%, 52%);
+    --muted: hsl(220, 15%, 90%);
+    --muted-fg: hsl(220, 10%, 45%);
+    --border: hsl(220, 15%, 87%);
+    --radius: 1rem;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    min-height: 100dvh;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* Ecrans */
+.screen {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+/* Menu */
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--muted-fg);
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 18rem;
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: var(--radius);
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-easy {
+    background: hsl(145, 60%, 45%);
+}
+
+.btn-medium {
+    background: hsl(210, 60%, 52%);
+}
+
+.btn-hard {
+    background: hsl(340, 65%, 55%);
+}
+
+.btn-primary {
+    background: var(--primary);
+}
+
+.btn-muted {
+    background: var(--muted);
+    color: var(--muted-fg);
+}
+
+.btn-sub {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
