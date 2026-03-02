@@ -16,6 +16,7 @@ const diffLabel = document.getElementById('difficulty-label');
 
 
 let currentDifficulty = null;
+let cards = [];
 let locked = false;
 
 // Afficher / Masquer les écrans
@@ -77,6 +78,11 @@ function renderGrid() {
     });
 }
 
+// Gérer le clic de la carte
+function handleClick() {
+    
+}
+
 // Démarrer le jeu
 function startGame(difficulty) {
     currentDifficulty = difficulty;
@@ -87,7 +93,7 @@ function startGame(difficulty) {
 
      diffLabel.textContent = LABELS[difficulty];
       renderGrid();
-     showScreen(gameScreen);
+      showScreen(gameScreen);
 }
 
 // Événements - boutons de menu
