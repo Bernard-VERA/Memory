@@ -35,6 +35,12 @@ h3 {
     font-family: 'Fredoka', sans-serif;
 }
 
+/* Classe pour cacher les menus, à remettre une fois le site créé
+.hidden {
+    display: none !important;
+}
+*/
+
 /* Ecrans */
 .screen {
     min-height: 100dvh;
