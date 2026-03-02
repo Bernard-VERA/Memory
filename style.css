@@ -115,3 +115,26 @@ h1 {
     font-weight: 400;
     opacity: 0.8;
 }
+
+
+/* Animations */
+.bounce-in {
+    animation: bounceIn 0.3s ease-out;
+    text-align: center;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
