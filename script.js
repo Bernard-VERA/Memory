@@ -56,7 +56,7 @@ function createDeck(difficulty) {
     }));
 }
 
-// Affichage de la grille
+// Affichage de la grille ("el" est un nom choisi pour désigner un élément créé)
 function renderGrid() {
     const { cols } = GRID_CONFIG[currentDifficulty];
     grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
@@ -150,10 +150,10 @@ function startGame(difficulty) {
     moves = 0;
     locked = false;
 
-     diffLabel.textContent = LABELS[difficulty];
-      updateMovesLabel();
-      renderGrid();
-      showScreen(gameScreen);
+    diffLabel.textContent = LABELS[difficulty];
+    updateMovesLabel();
+    renderGrid();
+    showScreen(gameScreen);
 }
 
 // Affichage de l'écran de victoire
@@ -166,3 +166,7 @@ function showWin() {
 document.querySelectorAll('[data-difficulty]').forEach(btn => {
     btn.addEventListener('click', () => startGame(btn.dataset.difficulty));
 });
+
+backBtn.addEventListener('click', () => showScreen(menuScreen));
+replayBtn.addEventListener('click', () => startGame(currentDifficulty));
+changeBtn.addEventListener('click', () => showScreen(menuScreen));
