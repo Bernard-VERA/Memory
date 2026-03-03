@@ -12,11 +12,11 @@
     --bg: hsl(40, 33%, 96%);
     --fg: hsl(220, 20%, 18%);
     --card-bg: hsl(0, 0%, 100%);
-    --card-back: hsl(210, 60%, 52%);
+    --card-back: hsl(210, 56%, 41%);
     --card-matched: hsl(145, 60%, 45%);
-    --primary: hsl(210, 60%, 52%);
+    --primary: hsl(210, 56%, 45%);
     --muted: hsl(220, 15%, 90%);
-    --muted-fg: hsl(220, 10%, 45%);
+    --muted-fg: hsl(220, 10%, 41%);
     --border: hsl(220, 15%, 87%);
     --radius: 1rem;
 }
@@ -94,15 +94,15 @@ h1 {
 }
 
 .btn-easy {
-    background: hsl(145, 60%, 45%);
+    background: hsl(145, 62%, 27%);
 }
 
 .btn-medium {
-    background: hsl(210, 60%, 52%);
+    background: hsl(210, 56%, 45%);
 }
 
 .btn-hard {
-    background: hsl(340, 65%, 55%);
+    background: hsl(340, 65%, 48%);
 }
 
 .btn-primary {
@@ -119,7 +119,7 @@ h1 {
     font-family: 'Nunito', sans-serif;
     font-size: 0.85rem;
     font-weight: 400;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 /* Header du jeu */
