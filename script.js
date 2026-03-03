@@ -16,7 +16,9 @@ const grid = document.getElementById('grid');
 const diffLabel = document.getElementById('difficulty-label');
 const movesLabel = document.getElementById('moves-label');
 const winMoves = document.getElementById('win-moves');
-
+const backBtn = document.getElementById('back-btn');
+const replayBtn = document.getElementById('replay-btn');
+const changeBtn = document.getElementById('change-btn');
 
 let currentDifficulty = null;
 let cards = [];
@@ -152,6 +154,12 @@ function startGame(difficulty) {
       updateMovesLabel();
       renderGrid();
       showScreen(gameScreen);
+}
+
+// Affichage de l'écran de victoire
+function showWin() {
+    winMoves.textContent = moves;
+    showScreen(winScreen);
 }
 
 // Événements - boutons de menu

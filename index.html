@@ -42,6 +42,20 @@
             </div>
             <div id="grid" class="grid"></div>
         </section>
+
+        <!-- Affichage victoire -->
+        <section id="win" class="screen hidden">
+            <div class="bounce-in">
+                <span class="win-emoji">🎉</span>
+                <h2>Bravo !</h2>
+                <p class="subtitle">Terminé en <span id="win-moves" class="bold"></span> coups</p>
+            </div>
+            <div class="menu-buttons">
+                <button id="replay-btn" class="btn btn-primary">Rejouer</button>
+                <button id="change-btn" class="btn btn-muted">Changer de niveau</button>
+            </div>
+        </section>
+
         <script src="script.js"></script>
     </main>
 </body>
