@@ -11,12 +11,17 @@ const LABELS = { easy: 'Facile', medium: 'Moyen', hard: 'Difficile' };
 // DOM
 const menuScreen = document.getElementById('menu');
 const gameScreen = document.getElementById('game');
+const winScreen = document.getElementById('win');
 const grid = document.getElementById('grid');
 const diffLabel = document.getElementById('difficulty-label');
+const movesLabel = document.getElementById('moves-label');
+const winMoves = document.getElementById('win-moves');
 
 
 let currentDifficulty = null;
 let cards = [];
+let selected = [];
+let moves = 0;
 let locked = false;
 
 // Afficher / Masquer les écrans
@@ -78,9 +83,61 @@ function renderGrid() {
     });
 }
 
+function updateMovesLabel() {
+    movesLabel.textContent = `${moves} coup${moves !== 1 ? 's' : ''}`;
+}
+
 // Gérer le clic de la carte
-function handleClick() {
-    
+function handleClick(id) {
+    if (locked) return;
+
+    const card = cards.find(c => c.id === id);
+    if (!card || card.isFlipped || card.isMatched) return;
+    if (selected.includes(id)) return;
+
+    card.isFlipped = true;
+    selected.push(id);
+    renderGrid();
+
+    if (selected.length === 2) {
+        locked = true;
+        moves++;
+        updateMovesLabel();
+
+        const [aId, bId] = selected;
+        const a = cards.find(c => c.id === aId);
+        const b = cards.find(c => c.id === bId);
+
+        if (a.symbol === b.symbol) {
+            // Correspondance
+            setTimeout(() => {
+                a.isMatched = true;
+                b.isMatched = true;
+                selected = [];
+                locked = false;
+                renderGrid();
+
+                if (cards.every(c => c.isMatched)) {
+                    setTimeout(() => showWin(), 300);
+                }
+            }, 300);
+        } else {
+            // Différence
+            // Ajouter un shake
+            const els = grid.querySelectorAll(`[data-id="${aId}"], [data-id="${bId}"]`);
+            setTimeout(() => {
+                els.forEach(el => el.classList.add('card-wrong'));
+            }, 50);
+
+            setTimeout(() => {
+                a.isFlipped = false;
+                b.isFlipped = false;
+                selected = [];
+                locked = false;
+                renderGrid();
+            }, 600);
+        }
+    }
 }
 
 // Démarrer le jeu
@@ -92,6 +149,7 @@ function startGame(difficulty) {
     locked = false;
 
      diffLabel.textContent = LABELS[difficulty];
+      updateMovesLabel();
       renderGrid();
       showScreen(gameScreen);
 }
