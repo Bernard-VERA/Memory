@@ -28,7 +28,7 @@ let locked = false;
 
 // Afficher / Masquer les écrans
 function showScreen(screen) {
-    [menuScreen, gameScreen].forEach(s => s.classList.add('hidden'));
+    [menuScreen, gameScreen, winScreen].forEach(s => s.classList.add('hidden'));
     screen.classList.remove('hidden');
 }
 
