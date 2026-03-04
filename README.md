@@ -102,3 +102,9 @@ pour la logique du jeu :
 ## Voir le site et jouer
 https://bernard-vera.github.io/Memory/
 
+-------------
+
+<p align="center" width="100%">
+    <img width="90%" src="https://github.com/Bernard-VERA/Memory/blob/main/images/memory.jpeg"> 
+</p>
+
