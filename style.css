@@ -112,6 +112,13 @@ h1 {
     color: var(--muted-fg);
 }
 
+.copyright {
+  font-size: 0.95rem;
+  color: var(--muted-fg);
+  opacity: 0.92;
+  margin-top: 1rem;
+}
+
 .btn-sub {
     display: block;
     font-family: 'Nunito', sans-serif;
