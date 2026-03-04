@@ -1,4 +1,4 @@
-# Créér un jeu de mémoire
+# Créer un jeu de mémoire
 
 ## MEMORY
 
