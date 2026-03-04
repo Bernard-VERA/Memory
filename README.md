@@ -105,6 +105,6 @@ https://bernard-vera.github.io/Memory/
 -------------
 
 <p align="center" width="100%">
-    <img width="90%" src="https://github.com/Bernard-VERA/Memory/blob/main/images/memory.jpeg"> 
+    <img width="90%" src="https://github.com/Bernard-VERA/Memory/blob/main/images/memory.jpg"> 
 </p>
 
