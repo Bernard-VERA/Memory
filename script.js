@@ -2,32 +2,34 @@ const SYMBOLS = ['🍎', '🌟', '🎈', '🐱', '🌈', '🎵', '🚀', '🌻',
 
 // Effets sonores (Avec Web Audio API)
 let audioCtx = null;
+let soundMuted = false;
 function getAudioCtx() {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    return audioCtx;
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return audioCtx;
 }
 function playTone(freq, duration, type = 'sine', gain = 0.15) {
-    const c = getAudioCtx();
-    const osc = c.createOscillator();
-    const g = c.createGain();
-    osc.type = type;
-    osc.frequency.value = freq;
-    g.gain.setValueAtTime(gain, c.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + duration);
-    osc.connect(g).connect(c.destination);
-    osc.start();
-    osc.stop(c.currentTime + duration);
+  if (soundMuted) return;
+  const c = getAudioCtx();
+  const osc = c.createOscillator();
+  const g = c.createGain();
+  osc.type = type;
+  osc.frequency.value = freq;
+  g.gain.setValueAtTime(gain, c.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + duration);
+  osc.connect(g).connect(c.destination);
+  osc.start();
+  osc.stop(c.currentTime + duration);
 }
 function sfxFlip() { playTone(600, 0.08, 'sine', 0.1); }
 function sfxMatch() {
-    playTone(523, 0.12, 'triangle', 0.12);
-    setTimeout(() => playTone(659, 0.12, 'triangle', 0.12), 80);
-    setTimeout(() => playTone(784, 0.18, 'triangle', 0.12), 160);
+  playTone(523, 0.12, 'triangle', 0.12);
+  setTimeout(() => playTone(659, 0.12, 'triangle', 0.12), 80);
+  setTimeout(() => playTone(784, 0.18, 'triangle', 0.12), 160);
 }
 function sfxWin() {
-    [523, 659, 784, 880, 1047].forEach((n, i) =>
-        setTimeout(() => playTone(n, 0.25, 'triangle', 0.12), i * 120)
-    );
+  [523, 659, 784, 880, 1047].forEach((n, i) =>
+    setTimeout(() => playTone(n, 0.25, 'triangle', 0.12), i * 120)
+  );
 }
 
 // Définition de la grille de jeu
@@ -50,6 +52,7 @@ const winMoves = document.getElementById('win-moves');
 const backBtn = document.getElementById('back-btn');
 const replayBtn = document.getElementById('replay-btn');
 const changeBtn = document.getElementById('change-btn');
+const soundBtn   = document.getElementById('sound-btn');
 
 let currentDifficulty = null;
 let cards = [];
@@ -204,3 +207,8 @@ document.querySelectorAll('[data-difficulty]').forEach(btn => {
 backBtn.addEventListener('click', () => showScreen(menuScreen));
 replayBtn.addEventListener('click', () => startGame(currentDifficulty));
 changeBtn.addEventListener('click', () => showScreen(menuScreen));
+soundBtn.addEventListener('click', () => {
+  soundMuted = !soundMuted;
+  soundBtn.textContent = soundMuted ? '🔇' : '🔊';
+  soundBtn.setAttribute('aria-label', soundMuted ? 'Activer le son' : 'Couper le son');
+});
