@@ -14,7 +14,7 @@
 
 Projet personnel ( Mars 2026 ) :<br />
 Jeu de Memory développé en HTML, CSS et JavaScript, proposant une expérience fluide, animée et responsive.<br />
-Le projet inclut trois niveaux de difficulté, un système audio, des animations visuelles, un compteur de coups et un écran de victoire.
+Le projet inclut trois niveaux de difficulté, des effets sonores, des animations visuelles, un compteur de coups et un écran de victoire.
 L’objectif était de créer un jeu simple mais techniquement propre, structuré et agréable à jouer, tout en explorant :
 * la manipulation avancée du DOM
 * la gestion d’état d’un jeu interactif
