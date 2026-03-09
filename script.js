@@ -101,6 +101,11 @@ function renderGrid() {
         el.className = 'card-flip';
         el.dataset.id = card.id;
 
+        // Rendre la carte focusable au clavier
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
+        el.setAttribute('aria-label', 'Carte à retourner')
+
         el.innerHTML = `
       <div class="card-inner${card.isFlipped || card.isMatched ? ' flipped' : ''}">
         <div class="card-face card-back">
@@ -115,6 +120,14 @@ function renderGrid() {
         if (card.isMatched) el.classList.add('card-matched');
 
         el.addEventListener('click', () => handleClick(card.id));
+        //  Activation clavier (Entrée / Espace pour jouer avec le clavier)
+        el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            
+            el.click();
+        }
+    });
         grid.appendChild(el);
     });
 }
