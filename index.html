@@ -1,63 +1,79 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <!-- "user-scalable=no" empêche le zoom de l'écran, mais n'est pas conforme aux critères WCAG -->
-        <title>Memory - Jeu de mémoire</title>
-        <meta name="description" content="Jeu de memory avec 3 niveaux de difficulté." />
-        <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <main>
-            <!-- Section Menu d'accueil -->
-            <section id="menu" class="screen">
-                <div class="bounce-in">
-                    <h1>Memory</h1>
-                    <p class="subtitle">Trouvez toutes les paires !</p>
+
+<head>
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' data:;
+        connect-src 'self';
+        media-src 'self';
+        object-src 'none';
+        frame-ancestors 'none';
+        base-uri 'self';
+    ">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- "user-scalable=no" empêche le zoom de l'écran, mais n'est pas conforme aux critères WCAG -->
+    <title>Memory - Jeu de mémoire</title>
+    <meta name="description" content="Jeu de memory avec 3 niveaux de difficulté." />
+    <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main>
+        <!-- Section Menu d'accueil -->
+        <section id="menu" class="screen">
+            <div class="bounce-in">
+                <h1>Memory</h1>
+                <p class="subtitle">Trouvez toutes les paires !</p>
+            </div>
+            <div class="menu-buttons">
+                <button class="btn btn-easy" data-difficulty="easy">
+                    Facile
+                    <span class="btn-sub">4x3 cartes</span>
+                </button>
+                <button class="btn btn-medium" data-difficulty="medium">
+                    Moyen
+                    <span class="btn-sub">4x4 cartes</span>
+                </button>
+                <button class="btn btn-hard" data-difficulty="hard">
+                    Difficile
+                    <span class="btn-sub">4x6 cartes</span>
+                </button>
+            </div>
+            <p class="copyright">Bernard VERA © 2026</p>
+        </section>
+        <!-- Section Grille de Jeu -->
+        <section id="game" class="screen hidden">
+            <div class="game-header">
+                <button id="back-btn" class="link-btn">← Retour</button>
+                <span id="difficulty-label" class="difficulty-label"></span>
+                <div style="display:flex;align-items:center;gap:0.5rem;">
+                    <button id="sound-btn" class="link-btn" aria-label="Couper le son"
+                        style="font-size:1.2rem;">🔊</button>
+                    <span id="moves-label" class="moves-label">0 coup</span>
                 </div>
-                <div class="menu-buttons">
-                    <button class="btn btn-easy" data-difficulty="easy">
-                        Facile
-                        <span class="btn-sub">4x3 cartes</span>
-                    </button>
-                    <button class="btn btn-medium" data-difficulty="medium">
-                        Moyen
-                        <span class="btn-sub">4x4 cartes</span>
-                    </button>
-                    <button class="btn btn-hard" data-difficulty="hard">
-                        Difficile
-                        <span class="btn-sub">4x6 cartes</span>
-                    </button>
-                </div>
-                <p class="copyright">Bernard VERA © 2026</p>
-            </section>
-            <!-- Section Grille de Jeu -->
-            <section id="game" class="screen hidden">
-                <div class="game-header">
-                    <button id="back-btn" class="link-btn">← Retour</button>
-                    <span id="difficulty-label" class="difficulty-label"></span>
-                    <div style="display:flex;align-items:center;gap:0.5rem;">
-                        <button id="sound-btn" class="link-btn" aria-label="Couper le son" style="font-size:1.2rem;">🔊</button>
-                        <span id="moves-label" class="moves-label">0 coup</span>
-                    </div>
-                </div>
-                <div id="grid" class="grid"></div>
-            </section>
-            <!-- Section Affichage victoire -->
-            <section id="win" class="screen hidden">
-                <div class="bounce-in">
-                    <span class="win-emoji">🎉</span>
-                    <h2>Bravo !</h2>
-                    <p class="subtitle">Terminé en <span id="win-moves" class="bold"></span> coups</p>
-                </div>
-                <div class="menu-buttons">
-                    <button id="replay-btn" class="btn btn-primary">Rejouer</button>
-                    <button id="change-btn" class="btn btn-muted">Changer de niveau</button>
-                </div>
-            </section>
-            <script src="script.js"></script>
-        </main>
-    </body>
+            </div>
+            <div id="grid" class="grid"></div>
+        </section>
+        <!-- Section Affichage victoire -->
+        <section id="win" class="screen hidden">
+            <div class="bounce-in">
+                <span class="win-emoji">🎉</span>
+                <h2>Bravo !</h2>
+                <p class="subtitle">Terminé en <span id="win-moves" class="bold"></span> coups</p>
+            </div>
+            <div class="menu-buttons">
+                <button id="replay-btn" class="btn btn-primary">Rejouer</button>
+                <button id="change-btn" class="btn btn-muted">Changer de niveau</button>
+            </div>
+        </section>
+        <script src="script.js"></script>
+    </main>
+</body>
+
 </html>
